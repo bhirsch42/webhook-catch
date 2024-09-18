@@ -13,4 +13,4 @@ export default {
   fetch: app.fetch,
 };
 
-console.log("Server running at http://localhost:400");
+console.log("Server running at http://localhost:4000");
