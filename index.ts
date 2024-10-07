@@ -12,5 +12,5 @@ app.post("/test", async (req: Request, res: Response) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`Logging requests to http://localhost:${port}/test`);
 });
