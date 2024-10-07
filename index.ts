@@ -1,16 +1,16 @@
-import { Hono } from "hono";
+import express, { type Request, type Response } from "express";
 
-const app = new Hono();
+const app = express();
+const port = 4000;
 
-app.post("/test", async (c) => {
-  const body = await c.req.json();
-  console.log("Received payload:", body);
-  return c.text("Webhook received", 200);
+app.use(express.json());
+
+app.post("/test", async (req: Request, res: Response) => {
+  console.log("Headers:", req.headers);
+  console.log("Body:", req.body);
+  res.status(200).send("Webhook received");
 });
 
-export default {
-  port: 4000,
-  fetch: app.fetch,
-};
-
-console.log("Server running at http://localhost:4000");
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
